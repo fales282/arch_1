@@ -17,7 +17,7 @@ Cостоит из 3 частей.
 2) Скачать и запустить скрипт командой:
 
    ```bash 
-   wget git.io/archuefi1.sh && sh archuefi1.sh
+   wget https://github.com/fales282/arch.git/archuefi1.sh && sh archuefi1.sh
    ```
    Запустится установка минимальной системы.
    2-я часть ставится автоматически и это базовая установка ArchLinux без программ. 
