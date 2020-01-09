@@ -26,13 +26,7 @@ echo '2.4 создание разделов'
  echo t;
  echo 1;
 
- echo n;
- echo;
- echo;
- echo +30G;
- echo y;
- 
-  
+
  echo n;
  echo;
  echo;
@@ -40,23 +34,20 @@ echo '2.4 создание разделов'
  echo y;
   
  echo w;
-) | fdisk /dev/sda
+) | fdisk /dev/nvme0n1
 
 echo 'Ваша разметка диска'
 fdisk -l
 
 echo '2.4.2 Форматирование дисков'
 
-mkfs.fat -F32 /dev/sda1
-mkfs.ext4  /dev/sda2
-mkfs.ext4  /dev/sda3
+mkfs.fat -F32 /dev/nvme0n1p1 
+mkfs.ext4 /dev/nvme0n1p2 
 
 echo '2.4.3 Монтирование дисков'
-mount /dev/sda2 /mnt
-mkdir /mnt/home
+mount /dev/nvme0n1p2 /mnt
 mkdir -p /mnt/boot/efi
-mount /dev/sda1 /mnt/boot/efi
-mount /dev/sda3 /mnt/home
+mount /dev/nvme0n1p1 /mnt/boot/efi
 
 echo '3.1 Выбор зеркал для загрузки.'
 rm -rf /etc/pacman.d/mirrorlist
