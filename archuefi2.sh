@@ -66,8 +66,8 @@ echo "Ставим XFCE"
 pacman -S xfce4 xfce4-goodies --noconfirm
 
 echo 'Cтавим DM'
-pacman -S lxdm --noconfirm
-systemctl enable lxdm
+pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+systemctl enable lightdm.service -f
 
 echo 'Ставим шрифты'
 pacman -S ttf-liberation ttf-dejavu --noconfirm 
