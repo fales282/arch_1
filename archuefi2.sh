@@ -26,7 +26,9 @@ mkinitcpio -p linux
 echo '3.5 Устанавливаем загрузчик'
 pacman -Syy
 pacman -S grub efibootmgr --noconfirm 
-grub-install /dev/sda
+grub-install /dev/nvme0n1
+
+pacman -S os-prober mtools fuse
 
 echo 'Обновляем grub.cfg'
 grub-mkconfig -o /boot/grub/grub.cfg
